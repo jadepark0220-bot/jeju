@@ -3,475 +3,681 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌴제주 5박 6일 최종 가이드</title>
+
+<title>🌴 6월 제주 여행</title>
 
 <style>
+
 :root{
-    --sea:#0284c7;
-    --sky:#38bdf8;
-    --green:#16a34a;
+    --primary:#0284c7;
+    --secondary:#16a34a;
+    --accent:#f59e0b;
     --purple:#8b5cf6;
-    --orange:#ea580c;
     --bg:#f4f8fb;
+    --dark:#1e293b;
 }
 
-*{box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-    margin:0;
-    background:var(--bg);
     font-family:'Malgun Gothic',sans-serif;
-    color:#1f2937;
-    font-size:18px;
+    background:var(--bg);
+    color:#334155;
+    line-height:1.6;
 }
 
-header{
-    background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
-    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
-    background-size:cover;
-    background-position:center;
-    color:white;
+.hero{
+    height:420px;
+    background:
+    linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+    linear-gradient(135deg,#0284c7,#38bdf8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:50px 20px;
+    color:white;
 }
 
-header h1{
-    margin:0;
-    font-size:34px;
+.hero-content h1{
+    font-size:3rem;
+    margin-bottom:10px;
 }
 
-header p{
-    font-size:18px;
+.hero-content p{
+    font-size:1.2rem;
 }
 
 .container{
-    max-width:800px;
+    max-width:1100px;
     margin:auto;
-    padding:15px;
+    padding:20px;
 }
 
-.summary{
+.section-title{
+    font-size:2rem;
+    margin:40px 0 20px;
+    color:var(--primary);
+}
+
+.progress-card{
     background:white;
     border-radius:15px;
     padding:20px;
-    margin:15px 0;
     box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 
-.tabs{
-    display:flex;
-    overflow:auto;
-    gap:8px;
-    position:sticky;
-    top:0;
-    background:var(--bg);
-    padding:10px 0;
-    z-index:10;
+.progress-bar{
+    height:25px;
+    background:#e2e8f0;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:10px;
 }
 
-.tab-btn{
-    border:none;
-    background:white;
-    padding:12px 18px;
-    border-radius:10px;
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#16a34a,#22c55e);
+    transition:.3s;
+}
+
+.progress-text{
+    margin-top:10px;
     font-weight:bold;
-    cursor:pointer;
-    font-size:16px;
-    white-space:nowrap;
 }
 
-.tab-btn.active{
-    background:var(--sea);
-    color:white;
-}
-
-.day{
-    display:none;
-}
-
-.day.active{
-    display:block;
-}
-
-.card{
+.map-card{
     background:white;
     border-radius:15px;
-    padding:18px;
-    margin-bottom:15px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-    border-left:6px solid var(--sea);
-}
-
-.card.food{border-left-color:var(--green);}
-.card.hotel{border-left-color:var(--orange);}
-.card.spot{border-left-color:var(--purple);}
-.card.ship{border-left-color:#f59e0b;}
-
-.time{
-    color:#64748b;
-    font-weight:bold;
-    font-size:16px;
-}
-
-.title{
-    font-size:24px;
-    font-weight:bold;
-    margin:6px 0;
-}
-
-.desc{
-    font-size:16px;
-    color:#4b5563;
-    line-height:1.6;
-    margin-top:8px;
-    background:#f8fafc;
-    padding:12px;
-    border-radius:8px;
-}
-
-.info-row{
-    display:flex;
-    justify-content:space-between;
-    font-size:14px;
-    color:#6b7280;
-    margin-top:8px;
-    border-top:1px dashed #e5e7eb;
-    padding-top:6px;
-}
-
-.highlight{
-    background:#fef3c7;
-    border-left:6px solid #f59e0b;
-    padding:15px;
-    border-radius:12px;
-    margin-bottom:15px;
-    font-weight:bold;
-    line-height:1.5;
-}
-
-.footer{
-    background:#1e293b;
-    color:white;
-    padding:20px;
-    border-radius:15px;
-    margin-top:25px;
-    text-align:center;
-    line-height:1.8;
-}
-
-.best{
-    background:white;
-    padding:20px;
-    border-radius:15px;
+    padding:25px;
     margin-top:20px;
     box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 
-.best li{
-    margin:10px 0;
-    font-size:20px;
+.map-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:15px;
+    margin-top:20px;
 }
+
+.pin{
+    background:#e0f2fe;
+    border-left:5px solid var(--primary);
+    border-radius:10px;
+    padding:12px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.day{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    margin-top:30px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.day-header{
+    background:linear-gradient(90deg,#0284c7,#38bdf8);
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.day-header h2{
+    margin:0;
+}
+
+.highlight{
+    background:#fef3c7;
+    border-left:6px solid var(--accent);
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.place{
+    border-left:5px solid var(--primary);
+    background:#f8fafc;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.place.food{
+    border-left-color:var(--secondary);
+}
+
+.place.hotel{
+    border-left-color:var(--accent);
+}
+
+.place.history{
+    border-left-color:var(--purple);
+}
+
+.place h3{
+    margin-bottom:8px;
+}
+
+.check-row{
+    margin-top:10px;
+}
+
+.check-row label{
+    font-weight:bold;
+    color:#16a34a;
+}
+
+.best-card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    margin-top:40px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.best-card ol{
+    margin-left:25px;
+}
+
+.best-card li{
+    margin:10px 0;
+    font-size:1.1rem;
+}
+
+.footer{
+    margin-top:50px;
+    background:var(--dark);
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:768px){
+
+.hero{
+height:300px;
+}
+
+.hero-content h1{
+font-size:2rem;
+}
+
+.section-title{
+font-size:1.6rem;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>🌴 효도 제주 5박 6일</h1>
-<p>성인 3명 · 자가운전 · 바다 중심 여행</p>
+<header class="hero">
+<div class="hero-content">
+<h1>🌴 6월 제주 여행</h1>
+<p>바다 · 역사 · 수국이 함께하는 힐링 여행</p>
+<p>2026.06.14 ~ 2026.06.19</p>
+</div>
 </header>
 
 <div class="container">
 
-<div class="summary">
-<h2>📌 여행 테마</h2>
-<p>🌊 바다 · 📜 역사 · 🌸 수국 · 🚶 힐링 산책</p>
+<h2 class="section-title">📊 여행 진행률</h2>
+
+<div class="progress-card">
+
+<div class="progress-bar">
+<div id="progressFill" class="progress-fill"></div>
 </div>
 
-<div class="tabs">
-<button class="tab-btn active" onclick="openDay(event,'day1')">🚗 DAY1</button>
-<button class="tab-btn" onclick="openDay(event,'day2')">🚢 DAY2</button>
-<button class="tab-btn" onclick="openDay(event,'day3')">🌸 DAY3</button>
-<button class="tab-btn" onclick="openDay(event,'day4')">🌺 DAY4</button>
-<button class="tab-btn" onclick="openDay(event,'day5')">🌊 DAY5</button>
-<button class="tab-btn" onclick="openDay(event,'day6')">🛍️ DAY6</button>
+<div id="progressText" class="progress-text">
+0 / 0 방문 완료
 </div>
 
-<!-- DAY1 -->
-<div id="day1" class="day active">
+</div>
+
+<h2 class="section-title">🗺️ 제주 여행 지도</h2>
+
+<div class="map-card">
+
+<p>
+이번 여행 핵심 포인트
+</p>
+
+<div class="map-grid">
+
+<div class="pin">📍 함덕</div>
+<div class="pin">📍 종달리</div>
+<div class="pin">📍 광치기</div>
+<div class="pin">📍 휴애리</div>
+<div class="pin">📍 수월봉</div>
+<div class="pin">📍 한담</div>
+
+</div>
+
+</div>
+<!-- DAY 1 -->
+
+<section class="day">
+
+<div class="day-header">
+<h2>🚗 DAY 1 (6/14 일)</h2>
+<p>광주 → 목포</p>
+</div>
+
 <div class="highlight">
-🌟 오늘의 하이라이트<br>
-목포해상케이블카 일몰 감상
+🌟 오늘의 하이라이트 : 목포해상케이블카 일몰
 </div>
 
-<div class="card">
-<div class="time">10:00</div>
-<div class="title">🚗 광주 출발</div>
-<div class="desc">SM3 차량에 짐을 싣고 목포를 향해 여유롭게 출발합니다. (약 50분 소요)</div>
-<div class="info-row"><span>💰 고속도로 통행료: 약 2,700원</span></div>
-</div>
-
-<div class="card food">
-<div class="time">11:10 ~ 12:40</div>
-<div class="title">🍽 영란횟집</div>
-<div class="desc">목포의 오랜 전통을 자랑하는 민어회 전문 노포입니다. 고소한 민어전과 새콤한 민어무침으로 여행의 시작을 든든하게 엽니다.</div>
-<div class="info-row"><span>💰 예상 식비: 5~6만 원</span></div>
-</div>
-
-<div class="card spot">
-<div class="time">13:00 ~ 15:30</div>
-<div class="title">🏛 목포 근대화거리</div>
-<div class="desc">근대역사관 1·2관을 중심으로 일제강점기 역사의 흔적이 남은 이국적인 골목을 산책합니다. 평탄한 도보 코스입니다.</div>
-<div class="info-row"><span>💰 입장료: 성인 3명 6,000원</span><span>👵 65세 이상 무료/할인</span></div>
-</div>
-
-<div class="card spot">
-<div class="time">17:00 ~ 19:00</div>
-<div class="title">🌅 목포해상케이블카</div>
-<div class="desc">국내 최장 길이의 케이블카를 타고 유달산을 지나 바다 위를 건넙니다. 유달산과 다도해를 붉게 물들이는 환상적인 낙조를 감상합니다.</div>
-<div class="info-row"><span>💰 입장료: 3인 약 72,000원</span><span>⚠️ 일몰 시간 탑승 권장</span></div>
-</div>
-
-<div class="card hotel">
-<div class="time">21:00 ~</div>
-<div class="title">🏨 클라우드인호텔</div>
-<div class="desc">내일 아침 일찍 제주행 여객선에 탑승하기 위해 목포항 인근 숙소에서 편안하게 휴식을 취합니다.</div>
-<div class="info-row"><span>✅ 숙소 예약 완료</span></div>
+<div class="place">
+<h3>🚗 광주 상무지구 출발</h3>
+<p>10:00 출발</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
 </div>
 </div>
 
-<!-- DAY2 -->
-<div id="day2" class="day">
+<div class="place food">
+<h3>🍽 영란횟집 또는 선경준치횟집</h3>
+<p>목포 로컬 민어무침 / 준치무침</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place history">
+<h3>🏛 목포 근대화거리</h3>
+<p>근대역사관 · 골목 산책</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place">
+<h3>🌅 목포해상케이블카</h3>
+<p>유달산과 다도해 일몰 감상</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place hotel">
+<h3>🏨 클라우드인호텔</h3>
+<p>숙박</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 체크인 완료</label>
+</div>
+</div>
+
+</section>
+
+<!-- DAY 2 -->
+
+<section class="day">
+
+<div class="day-header">
+<h2>🚢 DAY 2 (6/15 월)</h2>
+<p>목포 → 제주</p>
+</div>
+
 <div class="highlight">
-🌟 오늘의 하이라이트<br>
-함덕해변 서우봉 석양 산책
+🌟 오늘의 하이라이트 : 함덕해변 석양
 </div>
 
-<div class="card ship">
-<div class="time">07:30 ~ 12:45</div>
-<div class="title">🚢 퀸제누비아2 (목포항 ➡️ 제주항)</div>
-<div class="desc">대형 크루즈선에 SM3 차량을 선적하고 제주도로 향합니다. 넓고 아늑한 선내에서 다도해 풍경을 보며 여유롭게 이동합니다.</div>
-<div class="info-row"><span>✅ 차량 선적 및 승선권 예약 완료</span><span>⚠️ 신분증 필수 지참</span></div>
-</div>
-
-<div class="card food">
-<div class="time">13:20 ~ 14:20</div>
-<div class="title">🍽 희야네식당</div>
-<div class="desc">제주항 인근에 위치한 도민 찐 맛집입니다. 자작하게 조려낸 투박하고 깊은 맛의 고등어조림과 두루치기 정식을 맛봅니다.</div>
-<div class="info-row"><span>💰 예상 식비: 약 35,000원</span></div>
-</div>
-
-<div class="card spot">
-<div class="time">14:30 ~ 16:30</div>
-<div class="title">📜 제주4·3평화공원</div>
-<div class="desc">제주 현대사의 아픔을 품고 있는 조용하고 경건한 추모 공원입니다. 기념관 내부를 둘러보며 제주의 진짜 역사와 마주합니다.</div>
-<div class="info-row"><span>💰 입장료: 무료</span></div>
-</div>
-
-<div class="card spot">
-<div class="time">17:30 ~ 18:30</div>
-<div class="title">🌊 함덕 서우봉</div>
-<div class="desc">에메랄드빛 함덕 바다를 한눈에 내려다볼 수 있는 완만하고 예쁜 산책로입니다. 노을이 물드는 해안선을 따라 가볍게 걷기 좋습니다.</div>
-<div class="info-row"><span>💡 추천: 편한 운동화 착용</span></div>
-</div>
-
-<div class="card food">
-<div class="time">19:00 ~</div>
-<div class="title">🍽 상춘재</div>
-<div class="desc">청와대 전담 셰프 출신의 사장님이 정성껏 차려내는 곳입니다. 돌문어 비빔밥과 성게 비빔밥 등 속이 편안하고 깔끔한 맛이 일품입니다.</div>
-<div class="info-row"><span>⚠️ 재료 소진 시 조기 마감 주의</span></div>
+<div class="place">
+<h3>🚢 퀸제누비아2</h3>
+<p>목포항 → 제주항</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 승선 완료</label>
 </div>
 </div>
 
-<!-- DAY3 -->
-<div id="day3" class="day">
+<div class="place food">
+<h3>🍽 희야네식당</h3>
+<p>제육볶음 · 고등어조림</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place history">
+<h3>📜 제주 4·3 평화공원</h3>
+<p>제주 역사 이해</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place">
+<h3>🌊 함덕 서우봉</h3>
+<p>제주 동부 최고의 바다 산책</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place food">
+<h3>🍽 상춘재</h3>
+<p>돌문어 비빔밥</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+</section>
+
+<!-- DAY 3 -->
+
+<section class="day">
+
+<div class="day-header">
+<h2>🌸 DAY 3 (6/16 화)</h2>
+<p>제주 동부 해안</p>
+</div>
+
 <div class="highlight">
-🌟 오늘의 하이라이트<br>
-성산 일출봉이 보이는 광치기해변
+🌟 오늘의 하이라이트 : 광치기해변
 </div>
 
-<div class="card food">
-<div class="time">09:00 ~ 10:00</div>
-<div class="title">🍽 골목식당</div>
-<div class="desc">제주 구좌읍의 숨은 노포로, 오래 푹 고아내어 국물이 걸쭉하고 구수한 향토 음식 '접짝뼈국'으로 따뜻하게 아침을 시작합니다.</div>
-</div>
-
-<div class="card spot">
-<div class="time">10:30 ~ 12:00</div>
-<div class="title">🌲 비자림</div>
-<div class="desc">수백 년 된 비자나무 수천 그루가 자생하는 천년의 숲입니다. 붉은 화산송이가 깔린 평탄한 길을 걸으며 싱그러운 피톤치드를 가득 마십니다.</div>
-<div class="info-row"><span>💰 입장료: 9,000원</span><span>👵 65세 이상 신분증 제시 시 무료</span></div>
-</div>
-
-<div class="card spot">
-<div class="time">12:10 ~ 13:00</div>
-<div class="title">🌸 종달리 수국길</div>
-<div class="desc">6월 중순이면 푸르고 탐스러운 수국이 해안도로를 따라 끝없이 피어나는 곳입니다. 푸른 바다를 배경으로 예쁜 수국 돌담길을 걷습니다.</div>
-</div>
-
-<div class="card spot">
-<div class="time">14:30 ~ 15:30</div>
-<div class="title">🌊 광치기해변</div>
-<div class="desc">성산일출봉이 한눈에 들어오는 독특한 이끼 낀 화산암 해변입니다. 썰물 때 맞춰가면 물속에 숨겨졌던 비경이 신비롭게 드러납니다.</div>
-</div>
-
-<div class="card hotel">
-<div class="time">17:00 ~</div>
-<div class="title">🏨 더베스트 제주성산호텔</div>
-<div class="desc">성산일출봉 인근에 위치하여 동부권 관광지로의 이동이 편리하고 가성비가 훌륭한 깔끔한 숙소입니다.</div>
-<div class="info-row"><span>✅ 숙소 예약 완료</span></div>
+<div class="place food">
+<h3>🍽 골목식당</h3>
+<p>접짝뼈국 아침식사</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
 </div>
 </div>
 
-<!-- DAY4 -->
-<div id="day4" class="day">
+<div class="place">
+<h3>🌲 비자림</h3>
+<p>피톤치드 숲길 산책</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place">
+<h3>🌸 종달리 수국길</h3>
+<p>6월 수국 명소</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place">
+<h3>🌊 광치기해변</h3>
+<p>성산일출봉 최고의 뷰포인트</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place hotel">
+<h3>🏨 더베스트 제주성산호텔</h3>
+<p>숙박</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 체크인 완료</label>
+</div>
+</div>
+
+</section>
+<!-- DAY 4 -->
+
+<section class="day">
+
+<div class="day-header">
+<h2>🌺 DAY 4 (6/17 수)</h2>
+<p>성산 → 서귀포</p>
+</div>
+
 <div class="highlight">
-🌟 오늘의 하이라이트<br>
-휴애리 화려한 수국축제
+🌟 오늘의 하이라이트 : 휴애리 수국축제
 </div>
 
-<div class="card food">
-<div class="time">09:30 ~ 10:30</div>
-<div class="title">🍽 시흥해녀의집</div>
-<div class="desc">해녀들이 직접 채취한 싱싱한 전복과 조개를 듬뿍 넣고 끓여낸 고소한 원조 조개죽 맛집입니다. 아침 식사로 속을 부드럽게 달래줍니다.</div>
-</div>
-
-<div class="card spot">
-<div class="time">11:00 ~ 12:30</div>
-<div class="title">📜 의귀리 4·3길</div>
-<div class="desc">한적하고 고즈넉한 서귀포 중산간 마을길입니다. 4·3 사건의 슬픈 역사를 기억하며 조용하고 평화로운 숲길을 따라 발걸음을 옮깁니다.</div>
-</div>
-
-<div class="card spot">
-<div class="time">14:20 ~ 15:30</div>
-<div class="title">🌸 휴애리 수국축제</div>
-<div class="desc">제주 6월 여행의 하이라이트 공원입니다. 정성스럽게 가꾼 풍성한 온실 수국과 오색빛깔 정원을 거닐며 이번 여행의 인생 사진을 남깁니다.</div>
-<div class="info-row"><span>💰 입장료: 36,000원 (3인)</span><span>👵 경로 할인 가능</span></div>
-</div>
-
-<div class="card hotel">
-<div class="time">17:00 ~</div>
-<div class="title">🏨 호텔 화인 제주</div>
-<div class="desc">서귀포 천지연폭포와 서귀포항 근처에 위치한 안락한 호텔입니다. 저녁에 주변 시내를 가볍게 둘러보기 좋습니다.</div>
-<div class="info-row"><span>✅ 숙소 예약 완료</span></div>
+<div class="place food">
+<h3>🍽 시흥해녀의집</h3>
+<p>조개죽 · 전복죽</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
 </div>
 </div>
 
-<!-- DAY5 -->
-<div id="day5" class="day">
+<div class="place">
+<h3>🌲 사려니숲길 또는 의귀리 4·3길</h3>
+<p>한적한 숲길 산책</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place">
+<h3>🌺 휴애리 수국축제</h3>
+<p>제주 최고의 수국 명소</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place hotel">
+<h3>🏨 호텔 화인 제주</h3>
+<p>숙박</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 체크인 완료</label>
+</div>
+</div>
+
+</section>
+
+
+<!-- DAY 5 -->
+
+<section class="day">
+
+<div class="day-header">
+<h2>🌊 DAY 5 (6/18 목)</h2>
+<p>서귀포 → 애월</p>
+</div>
+
 <div class="highlight">
-🌟 오늘의 하이라이트<br>
-수월봉 낙조와 신창 풍차해안도로 driving
+🌟 오늘의 하이라이트 : 수월봉
 </div>
 
-<div class="card food">
-<div class="time">09:30 ~ 10:30</div>
-<div class="title">🍽 삼보식당</div>
-<div class="desc">수요미식회에도 소개된 서귀포 노포입니다. 옥돔구이와 자리물회, 혹은 뜨끈하고 개운한 오리지널 성게미역국이 유명합니다.</div>
-</div>
-
-<div class="card spot">
-<div class="time">11:00 ~ 12:30</div>
-<div class="title">🌊 박수기정</div>
-<div class="desc">안덕면 대평리 포구에 우뚝 솟은 웅장한 수직 절벽입니다. 거대한 병풍 같은 기암괴석을 배경으로 탁 트인 서귀포 바다를 감상하며 산책합니다.</div>
-</div>
-
-<div class="card spot">
-<div class="time">12:40 ~ 13:40</div>
-<div class="title">🌸 안성리 수국길</div>
-<div class="desc">제주의 옛 정취가 가득한 전통 돌담길 사이사이로 수국이 피어나는 숨은 도민 명소입니다. 복잡하지 않고 조용하게 수국을 누릴 수 있습니다.</div>
-</div>
-
-<div class="card spot">
-<div class="time">15:00 ~ 16:00</div>
-<div class="title">🌊 신창풍차해안도로</div>
-<div class="desc">해상 풍력발전기들이 바다 위에 줄지어 서 있는 이색적인 해안선입니다. 시원한 바닷바람을 맞으며 드라이브와 도보 산책을 동시에 즐깁니다.</div>
-</div>
-
-<div class="card spot">
-<div class="time">16:15 ~ 17:00</div>
-<div class="title">🌊 수월봉</div>
-<div class="desc">유네스코 세계지질공원으로 지정된 곳으로, 차를 타고 정상까지 편하게 올라갈 수 있습니다. 깎아지른 듯한 화산재 지층과 차귀도가 보입니다.</div>
-</div>
-
-<div class="card hotel">
-<div class="time">17:30 ~</div>
-<div class="title">🏨 다인리조트</div>
-<div class="desc">애월 해안도로변에 위치하여 마지막 날 밤 제주의 밤바다 파도 소리와 야경 정취를 만끽하기 좋은 숙소입니다.</div>
-<div class="info-row"><span>✅ 숙소 예약 완료</span></div>
+<div class="place food">
+<h3>🍽 맨도롱해장국</h3>
+<p>갱이죽 · 성게미역국</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
 </div>
 </div>
 
-<!-- DAY6 -->
-<div id="day6" class="day">
+<div class="place">
+<h3>🌊 박수기정</h3>
+<p>제주 서남부 최고의 해안 절경</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place">
+<h3>🌸 안덕 수국길</h3>
+<p>돌담과 수국이 아름다운 길</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place history">
+<h3>📜 셋알오름 · 백조일손지묘</h3>
+<p>제주 현대사 유적지</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place">
+<h3>🌊 수월봉</h3>
+<p>노을이 아름다운 제주 서쪽 해안</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place hotel">
+<h3>🏨 다인리조트</h3>
+<p>애월 숙박</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 체크인 완료</label>
+</div>
+</div>
+
+</section>
+
+
+<!-- DAY 6 -->
+
+<section class="day">
+
+<div class="day-header">
+<h2>🚢 DAY 6 (6/19 금)</h2>
+<p>애월 → 제주항 → 목포</p>
+</div>
+
 <div class="highlight">
-🌟 오늘의 하이라이트<br>
-한담해안산책로 아침 여유와 동문시장 기념품 쇼핑
+🌟 오늘의 하이라이트 : 한담해안산책로
 </div>
 
-<div class="card spot">
-<div class="time">08:30 ~ 09:30</div>
-<div class="title">🌊 한담해안산책로</div>
-<div class="desc">곽지해수욕장까지 이어지는 구불구불한 명품 해안 길입니다. 오전의 맑고 투명한 에메랄드빛 바다 바로 옆을 걸으며 마지막 힐링을 만끽합니다.</div>
-</div>
-
-<div class="card food">
-<div class="time">09:30 ~ 10:30</div>
-<div class="title">🍽 곽지국시</div>
-<div class="desc">애월 주민들이 찾는 아담한 국수 노포입니다. 기름기 없이 깔끔하게 우려낸 고기국수와 시원하고 담백한 멸치국수로 따뜻하게 식사합니다.</div>
-</div>
-
-<div class="card spot">
-<div class="time">11:30 ~ 12:30</div>
-<div class="title">🛍️ 동문시장 구경 및 쇼핑</div>
-<div class="desc">제주에서 가장 큰 전통시장입니다. 활기찬 시장 골목을 구경하고, 직장 동료들에게 선물할 상하지 않는 맛있는 '제주 메밀샌드' 과자를 구매합니다.</div>
-</div>
-
-<div class="card ship">
-<div class="time">13:40 ~ 18:10</div>
-<div class="title">🚢 제주항 출발 ➡️ 목포항 (광주 귀환)</div>
-<div class="desc">차량을 배에 다시 선적하고 제주항을 출발합니다. 목포항에 안전하게 도착한 뒤, 광주 상무지구 본가로 안전하게 복귀하며 여행을 마무리합니다.</div>
-<div class="info-row"><span>✅ 차량 선적 예약 완료</span><span>💡 꿀팁: 멀미약 사전 복용 권장</span></div>
+<div class="place">
+<h3>🌊 한담해안산책로</h3>
+<p>제주 바다를 가장 가까이서 걷는 길</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
 </div>
 </div>
 
-<div class="best">
-<h2>🏆 이번 여행 베스트 5</h2>
+<div class="place food">
+<h3>🍜 곽지국시</h3>
+<p>고기국수 · 멸치국수</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place">
+<h3>🛍️ 동문시장</h3>
+<p>기념품 및 간식 구입</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 방문 완료</label>
+</div>
+</div>
+
+<div class="place">
+<h3>🚢 퀸제누비아</h3>
+<p>제주항 → 목포항</p>
+<div class="check-row">
+<label><input type="checkbox" class="visit"> 승선 완료</label>
+</div>
+</div>
+
+</section>
+
+
+
+<section class="best-card">
+
+<h2>🏆 이번 여행 추천 베스트 5</h2>
+
 <ol>
-<li>🌊 함덕 서우봉 (탁 트인 에메랄드 해변 언덕)</li>
-<li>🌸 휴애리 수국축제 (6월 꽃 여행의 하이라이트)</li>
-<li>🌊 광치기해변 (성산일출봉과 이끼 낀 기암괴석)</li>
-<li>🌊 수월봉 (차 타고 올라가는 기가 막힌 지질 절벽)</li>
-<li>🌊 한담해안산책로 (투명한 투톤 바다 바로 옆 산책길)</li>
+<li>🌊 함덕 서우봉</li>
+<li>🌊 광치기해변</li>
+<li>🌺 휴애리 수국축제</li>
+<li>🌊 수월봉</li>
+<li>🌊 한담해안산책로</li>
 </ol>
-</div>
 
-<div class="footer">
-👨‍👩‍👦 성인 3명 (효도 여행)<br>
-🚗 SM3 69로9752 (안전운전)<br>
-🚢 퀸제누비아 왕복 선적 완료<br>
-🏨 일자별 숙소 예약 완료<br>
-<small style="color:#94a3b8; font-size:12px; display:block; margin-top:10px;">👵 매표소마다 부모님 신분증을 꼭 제시해 주세요!</small>
-</div>
+</section>
+
+
+<footer class="footer">
+
+<h2>🌴 6월 제주 여행</h2>
+
+<p>
+바다 · 역사 · 수국이 함께하는 가족여행
+</p>
+
+<p style="margin-top:10px;">
+체크 내용은 자동 저장됩니다.
+</p>
+
+</footer>
 
 </div>
 
 <script>
-function openDay(evt, dayId){
-let days=document.getElementsByClassName("day");
-for(let i=0;i<days.length;i++){
-days[i].style.display="none";
+
+const checks=document.querySelectorAll('.visit');
+const fill=document.getElementById('progressFill');
+const text=document.getElementById('progressText');
+
+function updateProgress(){
+
+const total=checks.length;
+
+const completed=[...checks].filter(c=>c.checked).length;
+
+const percent=(completed/total)*100;
+
+fill.style.width=percent+'%';
+
+text.innerHTML=
+completed + ' / ' + total + ' 방문 완료 (' +
+Math.round(percent) + '%)';
+
+localStorage.setItem(
+'jeju-trip-progress',
+JSON.stringify(
+[...checks].map(c=>c.checked)
+)
+);
+
 }
 
-let btns=document.getElementsByClassName("tab-btn");
-for(let i=0;i<btns.length;i++){
-btns[i].classList.remove("active");
+const saved=
+JSON.parse(
+localStorage.getItem('jeju-trip-progress')
+);
+
+if(saved){
+
+checks.forEach((check,index)=>{
+
+if(saved[index]!==undefined){
+
+check.checked=saved[index];
+
 }
 
-document.getElementById(dayId).style.display="block";
-evt.currentTarget.classList.add("active");
-window.scrollTo({top: 0, behavior: 'smooth'}); // 탭 전환 시 화면 맨 위로 부드럽게 스크롤
+});
+
 }
+
+checks.forEach(check=>{
+
+check.addEventListener('change',updateProgress);
+
+});
+
+updateProgress();
+
 </script>
 
 </body>
